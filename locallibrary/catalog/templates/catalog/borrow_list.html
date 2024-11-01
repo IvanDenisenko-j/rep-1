@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h1>Borrowed Books</h1>
+    <ul>
+        {% for book in borrowed_books %}
+            <li>{{ book.title }} - Borrowed by {{ book.borrower.username }}</li>
+        {% empty %}
+            <li>No borrowed books.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

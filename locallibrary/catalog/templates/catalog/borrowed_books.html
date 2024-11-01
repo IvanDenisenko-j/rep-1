@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Заимствованные книги</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Книга</th>
+        <th>Заёмщик</th>
+        <th>Дата заимствования</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for borrow in borrowed_books %}
+        <tr>
+          <td>{{ borrow.book.title }}</td>
+          <td>{{ borrow.borrower.username }}</td>
+          <td>{{ borrow.borrowed_at }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">Нет заимствованных книг.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<form method="post">
+        {% csrf_token %}
+        <label for="book_id">Выберите книгу для удаления:</label>
+        <select name="book_id" required>
+            {% for book in books %}
+                <option value="{{ book.pk }}">{{ book.title }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        {{ form.confirm.label_tag }} {{ form.confirm }}
+        <button type="submit">Удалить</button>
+    </form>
+    <a href="{% url 'books' %}">Назад к списку книг</a>
+{% endblock %}
