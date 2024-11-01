@@ -7,16 +7,16 @@
 {% block content %}
     <h1>{{ object.first_name }}</h1>
     <h2>{{ object.last_name }}</h2>
-    <p><strong>Дата рождения:</strong> {{ object.date_of_birth }}</p>
-    <p><strong>Дата смерти:</strong> {{ object.date_of_death }}</p>
+    <p><strong>Birth date:</strong> {{ object.date_of_birth }}</p>
+    <p><strong>Date of death:</strong> {{ object.date_of_death }}</p>
     <h3>Book:</h3>
     <ul>
     {% for book in books %}
         <li>
-            <strong>Название:</strong> <a href="{{ book.get_absolute_url }}">{{ Book.title }}</a><br>
+            <strong>Title:</strong> <a href="{{ book.get_absolute_url }}">{{ Book.title }}</a><br>
         </li>
     {% empty %}
-        <li>У этого автора нет книг.</li>
+        <li>This author does not have any books.</li>
     {% endfor %}
 </ul>
 {% endblock %}

@@ -1,13 +1,13 @@
 {% extends "base_generic.html" %}
 {% block content %}
-    <title>{% if form.instance.pk %}Редактировать{% else %}Создать{% endif %} книгу</title>
+    <title>{% if form.instance.pk %}Edit{% else %}Create{% endif %} book</title>
 
 
-    <h1>{% if form.instance.pk %}Редактировать{% else %}Создать{% endif %} книгу</h1>
+    <h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} book</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Сохранить</button>
+        <button type="submit">Save</button>
     </form>
-    <a href="{% url 'books' %}">Назад к списку книг</a>
+    <a href="{% url 'books' %}">Back to book list</a>
 {% endblock %}

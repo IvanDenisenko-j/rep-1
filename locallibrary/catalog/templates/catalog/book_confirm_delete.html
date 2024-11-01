@@ -2,7 +2,7 @@
 {% block content %}
 <form method="post">
         {% csrf_token %}
-        <label for="book_id">Выберите книгу для удаления:</label>
+        <label for="book_id">Select the book to be deleted:</label>
         <select name="book_id" required>
             {% for book in books %}
                 <option value="{{ book.pk }}">{{ book.title }}</option>
@@ -10,7 +10,7 @@
         </select>
         <br>
         {{ form.confirm.label_tag }} {{ form.confirm }}
-        <button type="submit">Удалить</button>
+        <button type="submit">Delete</button>
     </form>
-    <a href="{% url 'books' %}">Назад к списку книг</a>
+    <a href="{% url 'books' %}">Back to book list</a>
 {% endblock %}
